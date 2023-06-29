@@ -59,7 +59,11 @@
                     </div>
 
                     <div class="card-footer">
-                        Rodapé
+                        
+                      <div class="d-grid gap-2">
+                        <button id="executar-programa" onclick="verificarIdade()" class="btn btn-primary m-2" type="button">Iniciar programa</button>
+                      </div>
+
                     </div>
 
                 </div>
@@ -70,30 +74,45 @@
         
         <script>
 
-           //window.alert("Teste");     
+          function verificarIdade(){
+          
+            let nome  = '';
+            let idade = '';
 
-            let nome = window.prompt("Qual o nome do usuário?");
+            while(nome == ''){
+              nome = window.prompt("Qual o nome do usuário?");
+            }
 
-            let idade = window.prompt("Qual a idade do usuário?");
+            while(idade == ''){
+              idade = Number(window.prompt("Qual a idade do usuário?"));
+              
+              if(isNaN(idade)){
+                alert('Conteúdo digitado é inválido, por favor insira um número válido!');
+                idade = '';
+              }
+
+            }
+
+            let dobroIdade = idade * 2;
+
+            let metadeIdade = idade / 2;
 
             let elementoNome = window.document.getElementById("nome-usuario");
 
             elementoNome.innerHTML = `Olá ${nome}, seja bem vindo!`;
 
-
-
             let elementoIdade = window.document.getElementById("idade-usuario");
 
-            elementoIdade.innerHTML = `A sua idade é ${idade} anos, coisa fofa!`;
-           /*
-           let idade = window.prompt("Qual a sua idade?");
-           
-           console.log(idade);
+            elementoIdade.innerHTML = `A sua idade é ${idade} anos, 
+            e o dobro dela é ${dobroIdade} e a metade dela é ${metadeIdade}`;
 
-           idade = window.prompt("E a do seu pai?");
+            let elementoBotao = window.document.getElementById("executar-programa");
 
-           console.log(idade);
-            */    
+            elementoBotao.innerHTML = "Programa executado, deseja executar novamente?";
+
+          }
+
+           //Programa executado, deseja executar novamente?
         </script>
         
         
